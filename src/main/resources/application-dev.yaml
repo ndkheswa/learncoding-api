@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost/learncoding
-    username: {PG_USER}
-    password: {PG_PASSWD}
+    username: ${PG_USER}
+    password: ${PG_PASSWD}
   profiles:
     active: dev
 
