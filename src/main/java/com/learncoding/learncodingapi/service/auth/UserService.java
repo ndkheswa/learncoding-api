@@ -2,13 +2,13 @@ package com.learncoding.learncodingapi.service.auth;
 
 import com.learncoding.learncodingapi.exception.BadResourceException;
 import com.learncoding.learncodingapi.exception.ResourceAlreadyExistsException;
-import com.learncoding.learncodingapi.model.User;
+import com.learncoding.learncodingapi.model.ApplicationUser;
 
 import java.util.Optional;
 
 public interface UserService {
-    User save(User user) throws ResourceAlreadyExistsException, BadResourceException;
+    ApplicationUser save(ApplicationUser user) throws ResourceAlreadyExistsException, BadResourceException;
 
-    User findByUsername(String username);
-    Optional<User> findById(Long id);
+    ApplicationUser findByUsername(String username);
+    Optional<ApplicationUser> findById(Long id);
 }

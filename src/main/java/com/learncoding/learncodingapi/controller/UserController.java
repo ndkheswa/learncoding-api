@@ -2,7 +2,7 @@ package com.learncoding.learncodingapi.controller;
 
 import com.learncoding.learncodingapi.exception.BadResourceException;
 import com.learncoding.learncodingapi.exception.ResourceAlreadyExistsException;
-import com.learncoding.learncodingapi.model.User;
+import com.learncoding.learncodingapi.model.ApplicationUser;
 import com.learncoding.learncodingapi.service.auth.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,10 +24,10 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/sign-up")
-    public ResponseEntity<User> register(@RequestBody User user) throws URISyntaxException {
+    public ResponseEntity<ApplicationUser> register(@RequestBody ApplicationUser user) throws URISyntaxException {
         try {
             var newUser = userService.save(user);
-            return ResponseEntity.created(new URI("/users/" + newUser.getId()))
+            return ResponseEntity.created(new URI("/users/sign-up/" + newUser.getId()))
                     .body(user);
         } catch (ResourceAlreadyExistsException e) {
             logger.error(e.getMessage());

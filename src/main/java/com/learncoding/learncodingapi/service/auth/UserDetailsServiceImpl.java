@@ -1,30 +1,29 @@
 package com.learncoding.learncodingapi.service.auth;
 
-import com.learncoding.learncodingapi.model.User;
-import com.learncoding.learncodingapi.repository.UserRepository;
+import com.learncoding.learncodingapi.model.ApplicationUser;
+import com.learncoding.learncodingapi.repository.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
+import static java.util.Collections.emptyList;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private ApplicationUserRepository applicationUserRepository;
 
     @Override
-    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+        ApplicationUser user = applicationUserRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException(username);
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), Collections.emptyList());
+        return new User(user.getUsername(), user.getPassword(), emptyList());
     }
 }

@@ -8,11 +8,11 @@ import java.io.Serializable;
 
 @Data
 @Entity(name = "users_table")
-public class User implements Serializable {
+public class ApplicationUser implements Serializable {
 
     private static final long serialVersionUID = 6044598961665546255L;
 
-    public User() { }
+    public ApplicationUser() { }
 
     @Id
     @SequenceGenerator(name = "seq-gen", sequenceName = "api_seq", initialValue = 20583748, allocationSize = 50)
@@ -27,4 +27,16 @@ public class User implements Serializable {
 
     @NotNull
     private String password;
+
+    @NotNull
+    private boolean isAccountNotExpired;
+
+    @NotNull
+    private boolean isAccountNonLocked;
+
+    @NotNull
+    private boolean isCredentialsNonExpired;
+
+    @NotNull
+    private  boolean isEnabled;
 }
