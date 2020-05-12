@@ -10,9 +10,9 @@ import java.io.Serializable;
 @Entity(name = "users_table")
 public class ApplicationUser implements Serializable {
 
-    private static final long serialVersionUID = 6044598961665546255L;
-
     public ApplicationUser() { }
+
+    private static final long serialVersionUID = 6044598961665546255L;
 
     @Id
     @SequenceGenerator(name = "seq-gen", sequenceName = "api_seq", initialValue = 20583748, allocationSize = 50)
