@@ -36,6 +36,12 @@ dependencies {
 	}
 }
 
+bootJar {
+	manifest {
+		attributes 'Start-Class': 'com.learncoding.learncodingapi.LearnCodingApiApplication'
+	}
+}
+
 test {
 	useJUnitPlatform()
 }

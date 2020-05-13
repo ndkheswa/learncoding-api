@@ -1,6 +1,7 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost/learncoding
+    url: jdbc:postgresql://workloaddb-dev.ce9tpjnpyfai.eu-west-1.rds.amazonaws.com/learncoding
+
     username: ${PG_USER}
     password: ${PG_PASSWD}
   profiles:

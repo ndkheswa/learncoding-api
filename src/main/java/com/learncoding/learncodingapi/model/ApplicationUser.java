@@ -20,7 +20,7 @@ public class ApplicationUser implements Serializable {
     private Long id;
 
     @NotNull
-    private String fullName;
+    private String fullname;
 
     @NotNull
     private String username;
